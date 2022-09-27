@@ -37,7 +37,6 @@ fillLoop:
     beq     $t0,        $s0,            exitFillLoop
 
 
-
     addi    $v0,        $zero,          5
     syscall 
 
@@ -79,10 +78,8 @@ exitFillLoop:
     addi    $v0,        $zero,          4
     syscall 
 
-
     addi    $v0,        $zero,          10
     syscall 
-
 
 twoSum:
 
@@ -94,7 +91,6 @@ twoSum:
     sw      $s0,        8($sp)
     sw      $s1,        4($sp)
     sw      $s2,        0($sp)
-
 
     move    $s0,        $zero                           # sum
     move    $s1,        $zero                           # element address
@@ -112,14 +108,11 @@ loop1:
                                                         # while i != length
     beq     $t0,        $a1,            exit1
 
-
     move    $s0,        $zero                           # sum = 0
-
 
     sll     $t2,        $t0,            2
     add     $s1,        $a0,            $t2             # s1 = arr + i
     lw      $s2,        ($s1)                           # s2 = *(arr + i) = arr[i]
-
 
     add     $s0,        $s0,            $s2             # sum += arr[i]
     addi    $t1,        $t0,            1               # j = i + 1
@@ -131,9 +124,7 @@ loop2:
     add     $s1,        $a0,            $t3             # s1 = arr + j
     lw      $s2,        ($s1)                           # s2 = *(arr + j) = arr[j]
 
-
     add     $s0,        $s0,            $s2             # sum += arr[j]
-
 
     beq     $s0,        $a2,            found           # if sum == target -> return indexes
     sub     $s0,        $s0,            $s2             # sum -= arr[j]
